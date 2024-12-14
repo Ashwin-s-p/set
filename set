@@ -1,0 +1,49 @@
+package ashwin;
+import java.util.Scanner;
+
+abstract class Base
+{
+    double l,b,area;
+    void setDimentions()
+    {
+        double length,heigth;
+        System.out.println("Enter the length:");
+        Scanner s=new Scanner(System.in);
+        length=s.nextDouble();
+        System.out.println("Enter the heigth:");
+        heigth=s.nextDouble();
+        this.l=length;this.b=heigth;
+    }
+    abstract void computeArea();
+}
+class Triangle extends Base
+{
+	
+	void computeArea()
+{
+		area=(l*b)/2;
+		System.out.println("Area of triangle is: "+this.area);
+}
+}
+class Rectangle extends Base
+{
+	void computeArea()
+	{
+		area=(l*b);
+		System.out.println("Area of rectangle is: "+this.area);
+	}
+}
+public class DynamicBinding 
+{
+	public static void main(String[] args)
+	{
+	Triangle t=new Triangle();
+	Rectangle r=new Rectangle();
+	System.out.println("calculating Area of Triangle");
+	t.setDimentions();
+	t.computeArea();
+	System.out.println("calculating Area of Rectangle");
+	r.setDimentions();
+	r.computeArea();
+	}
+}
